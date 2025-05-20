@@ -161,7 +161,7 @@ between React and Django. Ideally, I would have liked to thrown in an encryption
 communication.
 Additionally, there are a few refactors that would need to be done to make the frontend more elegant (such as the duplicated login forms that
 could be generalized together with a few parameters to maintain their distinct usage cases), but the biggest issue of security between the React and Django
-components for security.
+components for security. Lastly, I believe there are some edge cases still, and a few UI things that probably don't line up perfectly.
 
 As the user accounts do not exist on the server, but on the SpellinBlox server, I will e-mail a temporary password to access the testing data along with the link to this repo to you.
 That password will be valid for 10 days before it expires.
