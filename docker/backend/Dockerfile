@@ -2,11 +2,13 @@
 
 FROM python:3.11.9-bookworm
 
-WORKDIR /app/backend
+WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+ADD ./backend/requirements.txt /app/backend/
 
-COPY . .
+run pip install --upgrade pip
+run pip install gunicorn
+run pip install -r backend/requirements.txt
 
-RUN python manage.py collectstatic --noinput
+add ./docker /app/docker
+add ./backend /app/backend

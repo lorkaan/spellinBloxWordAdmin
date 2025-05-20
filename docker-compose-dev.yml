@@ -14,7 +14,6 @@ services:
       - wordnetwork
     depends_on:
       - backend
-      - frontend
   backend:
     restart: unless-stopped
     build:
@@ -22,22 +21,15 @@ services:
       dockerfile: ./docker/backend/Dockerfile
     environment:
       - PYTHONUNBUFFERED=1
+    env_file:
+      - .test.env
     networks:
       - wordnetwork
     entrypoint: /app/docker/backend/wsgi-entrypoint.sh
     expose:
       - 8000
-  frontend:
-    restart: unless-stopped
-    build:
-      context: .
-      dockerfile: ./docker/frontend/Dockerfile
-    volumes:
-      - frontend:/app/build
-    command: sh -c "npm install && npm run build"
 networks:
   wordnetwork:
     driver: bridge
 volumes:
-  frontend:
   backend:
