@@ -5,7 +5,7 @@ This system manages 3-ples consisting of (Tag, Word, Description/Details) that i
 pull syncs with the SpellinBlox database on successful logins, and push syncs with a manual UI action (was not able to fully test the integration)
 
 Instead of creating a separate username and password, this system forwards the credentials through https with csrf tokens to SpellinBlox to login.
-Once SpellinBlox authenticates the credentials, the user's IP address is stored in the server-side session data for a maximum of 20 minutes to handle continued verification.
+Once SpellinBlox authenticates the credentials, the user's IP address is stored in the server-side session data for a maximum of 20 minutes to handle continued verification (I would have liked to been able to extend that time with each request, but I did not think of it until it was too late to begin implementing).
 Additionally, the current database of customized 3-ples is synced to the system's server database and stored. 
 
 These synced 3-ples can then be interacted with by the user for as long as they are verified in the system using some CRUD operations.
